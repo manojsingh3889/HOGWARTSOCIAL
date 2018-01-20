@@ -66,24 +66,24 @@ public class Post implements Comparable<Post>{
 	@Override
 	public int compareTo(Post o) {
 		if(Repository.users.get(o.getOwner()).getFollowers() > Repository.users.get(this.getOwner()).getFollowers())
-			return -1;
-		else if(Repository.users.get(o.getOwner()).getFollowers() < Repository.users.get(this.getOwner()).getFollowers())
 			return 1;
+		else if(Repository.users.get(o.getOwner()).getFollowers() < Repository.users.get(this.getOwner()).getFollowers())
+			return -1;
 		else{
 			if(o.getUpvote()-o.getDownvote() > this.getUpvote()-this.getDownvote())
-				return -1;
-			else if(o.getUpvote()-o.getDownvote() < this.getUpvote()-this.getDownvote())
 				return 1;
+			else if(o.getUpvote()-o.getDownvote() < this.getUpvote()-this.getDownvote())
+				return -1;
 			else{
 				if(o.getComments().size() > this.getComments().size())
-					return -1;
-				else if(o.getComments().size() < this.getComments().size()) 
 					return 1;
+				else if(o.getComments().size() < this.getComments().size()) 
+					return -1;
 				else{
 					if(o.getCreated().after(this.getCreated()))
-						return -1;
-					else if (o.getCreated().before(this.getCreated()))
 						return 1;
+					else if (o.getCreated().before(this.getCreated()))
+						return -1;
 					else 
 						return 0;
 				}
