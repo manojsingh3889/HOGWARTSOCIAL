@@ -1,5 +1,6 @@
 package interview.flipkart;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Comment {
 	private Integer upvote;
 	private Integer downvote;
 	private Date created;
-	private List<Comment> replies;
+	private List<Comment> replies = new ArrayList<>();
 	private static int counter = 1;
 	
 	

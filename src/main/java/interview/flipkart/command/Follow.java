@@ -13,8 +13,8 @@ public class Follow {
 				System.out.println("Unknow user");
 				return;
 			}
-				
 			Repository.users.get(name).addFollower();
+			Repository.current.follow(Repository.users.get(name));
 		} catch(ArrayIndexOutOfBoundsException e){
 			System.out.println("Invalid input usage follow~username");
 		}catch (Exception e) {

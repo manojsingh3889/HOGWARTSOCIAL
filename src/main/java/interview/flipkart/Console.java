@@ -26,7 +26,7 @@ public static String DELIMETER = "~";
 			case "upvote" : new Upvote().process(input);break;
 			case "downvote": new Downvote().process(input); break;
 			case "shownewsfeed": new NewsFeed().display();break;
-			case "follow":new Follow().process(input);
+			case "follow":new Follow().process(input);break;
 			default : System.out.println("Unknown command"); break;
 			}
 		}

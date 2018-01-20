@@ -65,9 +65,12 @@ public class Post implements Comparable<Post>{
 	}
 	@Override
 	public int compareTo(Post o) {
-		if(Repository.users.get(o.getOwner()).getFollowers() > Repository.users.get(this.getOwner()).getFollowers())
+		boolean followingO = Repository.current.isFollowing(Repository.users.get(o.getOwner()));
+		boolean followingThis = Repository.current.isFollowing(Repository.users.get(this.getOwner()));
+
+		if(followingO && !followingThis)
 			return 1;
-		else if(Repository.users.get(o.getOwner()).getFollowers() < Repository.users.get(this.getOwner()).getFollowers())
+		else if(!followingO && followingThis)
 			return -1;
 		else{
 			if(o.getUpvote()-o.getDownvote() > this.getUpvote()-this.getDownvote())
@@ -88,14 +91,13 @@ public class Post implements Comparable<Post>{
 						return 0;
 				}
 			}
-		} 
-			
+		}
 	}
 	public void addUpvote() {
 		// TODO Auto-generated method stub
 		++this.upvote;
 	}
-	
+
 	public void adDownvote() {
 		// TODO Auto-generated method stub
 		++this.downvote;
